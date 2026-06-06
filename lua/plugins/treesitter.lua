@@ -5,10 +5,11 @@ return function(config)
 
     return {
         'nvim-treesitter/nvim-treesitter',
+        branch       = 'master',
         build        = ':TSUpdate',
         priority     = 800,
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
+            { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'master' },
         },
         config = function()
             if config.plugins.treesitter and type(config.plugins.treesitter) == 'function' then

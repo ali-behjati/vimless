@@ -10,16 +10,11 @@
 -- to whatever the latest vimless is.
 
 return {
-    -- Vimless Options
-    -- ------------------------------------------------------------------------------------
-    theme = 'base16-default-dark',
-
     -- Custom Plugins
     --
     -- Additional plugins can be added using the iackage syntax provided by lazy.nvim
     -- ------------------------------------------------------------------------------------
     custom = {
-        { 'vhyrro/luarocks.nvim', priority = 1000, config = true },
         -- { 'ojroques/vim-oscyank', branch = 'main'},
         { 'yorickpeterse/nvim-pqf', opts = {} },
         -- 'LnL7/vim-nix',
@@ -75,6 +70,7 @@ return {
 
         mini = {
             animate     = false,
+            base16      = false, -- Disabled: using onedark (a GUI theme) instead.
             basics      = false,
             clue        = false,
             colors      = false,
@@ -122,7 +118,7 @@ return {
         indent_blankline  = false,
         leap              = false, -- Conflicts with `flash`, enable only one or the other.
         oil               = false,
-        onedark           = false,
+        onedark           = { style = 'dark' },
         targets           = false,
         tokyonight        = false,
         vinegar           = false,

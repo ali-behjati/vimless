@@ -64,7 +64,6 @@ require('lazy').setup(
         require('plugins/marks')(config),
         require('plugins/mini')(config),
         require('plugins/neogit')(config),
-        require('plugins/neorg')(config),
         require('plugins/neotest')(config),
         require('plugins/neotree')(config),
         require('plugins/nvim-web-devicons')(config),
