@@ -70,8 +70,6 @@ return function(config)
 
             crates.setup(opts.crates)
 
-            print(tools)
-
             local keymap = require 'keymap'
 
             keymap:registerLanguage('Rust',   'rust')
