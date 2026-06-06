@@ -4,12 +4,13 @@ return function(config)
     end
 
     return {
-        'tpope/vim-surround',
+        "kylechui/nvim-surround",
+        version = "^3.0.0",
+        event = "VeryLazy",
         config = function()
-            if config.plugins.surround and type(config.plugins.surround) == 'function' then
-                config.plugins.surround()
-                return
-            end
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
         end
     }
 end

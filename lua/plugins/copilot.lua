@@ -29,8 +29,6 @@ return function(config)
                     accept = false,
                 },
                 filetypes = {
-                    ["*"]           = false,
-
                     -- Copilot can be considered a privacy leak, by default it runs in filetypes that we really
                     -- don't want it to, like in mail in neomutt, in env files with secrets, etc. So instead we
                     -- add a whitelist of languages that we want it to run in. This is more likely to give us
@@ -51,6 +49,7 @@ return function(config)
                     fennel          = true,
                     fiph            = true,
                     fsharp          = true,
+                    gitcommit       = true,
                     go              = true,
                     groovy          = true,
                     haskell         = true,
@@ -82,18 +81,18 @@ return function(config)
                     scheme          = true,
                     scss            = true,
                     solidity        = true,
-                    sh              = true,
+                    sh              = false,
                     sql             = true,
                     svelte          = true,
                     swift           = true,
-                    toml            = true,
+                    -- toml            = true,
                     typescriptreact = true,
                     typescript      = true,
                     verilog         = true,
                     vhdl            = true,
                     vim             = true,
                     vue             = true,
-                    yaml            = true,
+                    -- yaml            = true,
                     zig             = true,
                     zsh             = true,
                 }

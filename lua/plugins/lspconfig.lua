@@ -54,48 +54,6 @@ return function(config)
             require 'neodev'.setup(opts.neodev)
             require 'mason'.setup(opts.mason)
             require 'mason-lspconfig'.setup(opts.mason_lspconfig)
-            require 'mason-lspconfig'.setup_handlers {
-                -- Provide an default handler for LSP servers. Whenever Mason installs
-                -- a server it will automatically use this call to setup those servers
-                -- so they don't have to be listed here manually.
-                function(server_name)
-                    require 'lspconfig'[server_name].setup {
-                        on_attach    = function(client, buffer)
-                            -- client.server_capabilities.semanticTokensProvider = nil
-                            if client.server_capabilities.documentSymbolProvider then
-                                require 'nvim-navic'.attach(
-                                    client,
-                                    buffer
-                                )
-                            end
-
-                            -- If the server supports inlay hints, then enable them.
-                            if client.server_capabilities.inlayHintsProvider then
-                                vim.lsp.buf.inlay_hint(buffer, true)
-                            end
-                        end,
-                    }
-                end,
-
-                -- Disable Rust Analyzer Setup so that rust-tools.nvim can handle it
-                -- instead, rust-tools is much more integrated.
-                rust_analyzer = function()
-                end,
-
-                -- Setup clangd
-                clangd = function()
-                    require 'lspconfig'.clangd.setup {
-                        cmd = {
-                            "clangd",
-                            "--background-index",
-                            "--header-insertion=iwyu",
-                            "--query-driver=/usr/bin/clang",
-                            "--all-scopes-completion",
-                            "--completion-style=detailed"
-                        },
-                    }
-                end,
-            }
 
             -- Sign Overrides
             local signs = {
