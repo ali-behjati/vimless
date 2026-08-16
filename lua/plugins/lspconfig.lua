@@ -43,7 +43,7 @@ return function(config)
             }
 
             if config.plugins.lspconfig and type(config.plugins.lspconfig) == 'table' then
-                opts = vim.tbl_deep_auto_sessionextend('force', opts, config.plugins.lspconfig)
+                opts = vim.tbl_deep_extend('force', opts, config.plugins.lspconfig)
             end
 
             vim.cmd [[
